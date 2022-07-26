@@ -1,66 +1,95 @@
-let displayEl= document.getElementById('display')
-displayEl.textContent = ''
-let numberEl = Array.from(document.querySelectorAll('.number'))
-console.log(numberEl)
-let operandEl = Array.from(document.querySelectorAll('.operand'))
-console.log(operandEl)
+//SET MORE THAN TWO NUMBERS 
+
+let displayEl = document.getElementById('display')
+let numberEl = document.querySelectorAll('.number')
+let operandEl = document.querySelectorAll('.operand')
 let equalEl = document.getElementById('equalBtn')
+let clearEl = document.getElementById('clearBtn')
+let deleteEl = document.getElementById('deleteBtn')
+
 let firstNumber = ''
-let secondNumber = ''
+let secondNumber= ''
 let operator = ''
 
 
-numberEl.map(item=> item.addEventListener('click', () => {
-    if (operator === ''){
-        firstNumber += item.textContent 
-        displayEl.textContent = firstNumber 
-        console.log(firstNumber)
-    } else{
-        displayEl.textContent += item.textContent
-        
-    }
-   
-}))
+function add(a,b){
+    console.log(Number(a)+Number(b))
+    displayEl.textContent = Number(a)+Number(b) 
+}
+function subtract(a,b){
+    console.log(Number(a)-Number(b))
+    displayEl.textContent = Number(a)-Number(b) 
+}
+function multiply(a,b){
+    console.log(Number(a)*Number(b))
+    displayEl.textContent = Number(a)*Number(b) 
+}
+function divide(a,b){
+    console.log(Number(a)/Number(b))
+    displayEl.textContent = Number(a)/Number(b) 
+}
+function exponent(a,b){
+    console.log(Number(a)**Number(b))
+    displayEl.textContent = Number(a)**Number(b)  
+}
 
-
-operandEl.map(operandItem=> operandItem.addEventListener('click', () => {
-    operator = operandItem.textContent
-    displayEl.textContent += operator
-   // console.log(operator)
-   
-}))
-
-switch(operator){
-    case (operator === "+"):
-     console.log(operator)
-     break;
- }
-
-function add(a,b){ console.log(a+b)}  //unir con + - * /?
-/*function subtract(a,b){console.log(a-b)}
-function multiply(a,b){console.log(a*b)}
-function divide(a,b){console.log(a/b)}*/
-
-/*
-function operate(operator,a,b){  // break; :
-    switch(operator){
-       case (operator === "+"):
-        console.log(operator)
+function operate(operator, num1, num2){
+    switch(operator) {
+        case '+':
+          add(num1,num2)
         break;
-    }
+
+        case '-':
+            subtract(num1,num2)
+        break;
+        case 'X':
+            multiply(num1,num2)
+        break;
+        case '/':
+            divide(num1,num2)
+        break;
+        case '**':
+            exponent(num1,num2)
+        break;
+      }
+}
 
 
-} 
-*/
+function display(){   
 
-/*
-equalEl.addEventListener('click', ()=>{
-    console.log(ecuation)
-})*/
+    numberEl.forEach(item=>{
+        item.addEventListener('click', e=>{
+        if(operator===''){
+            firstNumber += e.target.innerText
+            console.log(firstNumber)
+            displayEl.textContent += e.target.innerText
+        }else{
+            secondNumber += e.target.innerText
+            console.log(secondNumber)
+            displayEl.textContent += e.target.innerText
+        }
+        })
+    })
 
-/*
-equalEl.addEventListener('click', ()=>{
+}
+
+display()
+
+operandEl.forEach(item => {
+    item.addEventListener('click', ()=>{
+        console.log(item.textContent)
+        operator = item.textContent
+        displayEl.textContent += operator
+    })
+})
+
+equalEl.addEventListener('click',()=>{
+    operate(operator, firstNumber, secondNumber)
+})
+
+clearEl.addEventListener('click',()=>{
     displayEl.textContent = ''
-})*/
-
-
+    firstNumber = ''
+    secondNumber = ''
+    operator = ''
+})
