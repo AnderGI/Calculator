@@ -7,26 +7,72 @@ body{
     flex-direction: column;
     padding: 100px;
     align-items: center;
+    background: linear-gradient(#e66465, #9198e5);
 }
 #display, #buttons{
     border: 2px solid black;
+    background-color: black;
     width: 400px;
 }
 #display{
-    height: 100px;
+    height: 175px;
+    width: 500px;
+    border-radius: 50px 50px 0px 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    font-weight: 700;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+    color: white;
 }
 #buttons{
-    display: flex;
-    gap: 3px;
+    background-color: rgb(247, 247, 247);
+    height: 500px;
+    width: 500px;
+    border-radius: 0px 0px 50px 50px;
+    gap: 10px;
     padding: 10px;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: 300px;
+    display: grid;
+    border-top: none;
+    grid-template-columns: 5;
+    grid-template-rows: 4;
+    grid-template-areas: 
+    'num7 num8 num9 sum subtr'
+    'num4 num5 num6 multi divide'
+    'num1 num2 num3 power ac'
+    'num0 dot equal del del'
+    ;
 }
 #buttons >div{
-    width: 50px;
-    height: 50px;
-    border: 2px solid black;
-    
+    background-color: gainsboro;
+    border-radius: 50px 25px;
+    border: 1px solid rgb(214, 190, 190);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
 }
+#num1{ grid-area: num1;}
+#num2{ grid-area: num2;}
+#num3 {grid-area: num3;}
+#num4 {grid-area: num4;}
+#num5{ grid-area: num5;}
+#num6{ grid-area: num6;}
+#num7{ grid-area: num7;}
+#num8 {grid-area: num8;}
+#num9 {grid: num9;}
+#num0 {grid-area: num0;}
+#sum{ grid-area: sum;}
+#subtract { grid-area: subtr;}
+#multiply { grid-area: multi;}
+#divide{ grid-area: divide;}
+#power{grid-area: power;}
+#dot{grid-area: dot;}
+#equalBtn{ grid-area: equal;}
+#deleteBtn{ grid-area: del;}
+#clearBtn{ grid-area: ac;}
