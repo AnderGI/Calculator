@@ -1,4 +1,5 @@
-//SET MORE THAN TWO NUMBERS 
+//SET MORE THAN TWO NUMBERS STRAIGHT
+// DOT AS A WAY OF CREATING FLOATING NUMBERS
 
 let displayEl = document.getElementById('display')
 let numberEl = document.querySelectorAll('.number')
@@ -6,11 +7,11 @@ let operandEl = document.querySelectorAll('.operand')
 let equalEl = document.getElementById('equalBtn')
 let clearEl = document.getElementById('clearBtn')
 let deleteEl = document.getElementById('deleteBtn')
-
+let dotEl = document.getElementById('dot')
 let firstNumber = ''
 let secondNumber= ''
 let operator = ''
-
+let result = ''
 
 function add(a,b){
     console.log(Number(a)+Number(b))
@@ -62,11 +63,20 @@ function display(){
         if(operator===''){
             firstNumber += e.target.innerText
             console.log(firstNumber)
+            dotEl.addEventListener('click', ()=>{
+                displayEl.textContent += '.'
+                firstNumber += '.'
+            })
             displayEl.textContent += e.target.innerText
-        }else{
+        }else{ 
             secondNumber += e.target.innerText
             console.log(secondNumber)
-            displayEl.textContent += e.target.innerText
+            dotEl.addEventListener('click', ()=>{
+                displayEl.textContent += '.'
+                firstNumber += '.'
+            })
+            displayEl.textContent = e.target.innerText
+            equalResult()
         }
         })
     })
@@ -79,17 +89,28 @@ operandEl.forEach(item => {
     item.addEventListener('click', ()=>{
         console.log(item.textContent)
         operator = item.textContent
-        displayEl.textContent += operator
+        displayEl.textContent = operator
     })
 })
 
-equalEl.addEventListener('click',()=>{
+function equalResult (){
     operate(operator, firstNumber, secondNumber)
-})
+    result = displayEl.textContent
+    firstNumber = '' 
+    secondNumber = ''
+    operator = ''
+    console.log(`the result ${result}`)
+    console.log(typeof displayEl.textContent)
+}
+equalEl.addEventListener('click',equalResult)
 
 clearEl.addEventListener('click',()=>{
     displayEl.textContent = ''
     firstNumber = ''
     secondNumber = ''
+    result = ''
     operator = ''
 })
+
+
+
