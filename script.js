@@ -12,6 +12,7 @@ let firstNumber = ''
 let secondNumber= ''
 let operator = ''
 let result = ''
+let noManyDecimanls;
 
 function add(a,b){
     console.log(Number(a)+Number(b))
@@ -26,8 +27,15 @@ function multiply(a,b){
     displayEl.textContent = Number(a)*Number(b) 
 }
 function divide(a,b){
-    console.log(Number(a)/Number(b))
-    displayEl.textContent = Number(a)/Number(b) 
+    if (!b===0){
+    noManyDecimanls = Number(a)/Number(b)
+    noManyDecimanls = noManyDecimanls.toFixed(3)
+    console.log(noManyDecimanls)
+    displayEl.textContent = noManyDecimanls
+}else{
+    displayEl.textContent = `Nope. You can't divide by zero`
+    console.log(`nope`)
+}
 }
 function exponent(a,b){
     console.log(Number(a)**Number(b))
@@ -35,6 +43,7 @@ function exponent(a,b){
 }
 
 function operate(operator, num1, num2){
+
     switch(operator) {
         case '+':
           add(num1,num2)
@@ -49,7 +58,7 @@ function operate(operator, num1, num2){
         case '/':
             divide(num1,num2)
         break;
-        case '**':
+        case '**': 
             exponent(num1,num2)
         break;
       }
@@ -67,6 +76,7 @@ function display(){
             secondNumber += e.target.innerText
             console.log(secondNumber)
             displayEl.textContent = e.target.innerText
+            equalResult()
             
         }
         })
@@ -86,8 +96,9 @@ operandEl.forEach(item => {
 
 function equalResult (){
     operate(operator, firstNumber, secondNumber)
-    /*result = displayEl.textContent*/
-    firstNumber = '' 
+    result = displayEl.textContent
+    console.log(result)
+    firstNumber = result 
     secondNumber = ''
     operator = ''
    
