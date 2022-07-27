@@ -42,8 +42,8 @@ body{
     grid-template-areas: 
     'num7 num8 num9 sum subtr'
     'num4 num5 num6 multi divide'
-    'num1 num2 num3 power ac'
-    'num0 dot equal del del'
+    'num1 num2 num3 power del'
+    'num0 dot equal ac ac'
     ;
 }
 #buttons >div{

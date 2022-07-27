@@ -55,28 +55,19 @@ function operate(operator, num1, num2){
       }
 }
 
-
 function display(){   
 
     numberEl.forEach(item=>{
         item.addEventListener('click', e=>{
         if(operator===''){
-            firstNumber += e.target.innerText
-            console.log(firstNumber)
-            dotEl.addEventListener('click', ()=>{
-                displayEl.textContent += '.'
-                firstNumber += '.'
-            })
+            firstNumber = e.target.innerText
+            console.log(firstNumber)       
             displayEl.textContent += e.target.innerText
         }else{ 
             secondNumber += e.target.innerText
             console.log(secondNumber)
-            dotEl.addEventListener('click', ()=>{
-                displayEl.textContent += '.'
-                firstNumber += '.'
-            })
             displayEl.textContent = e.target.innerText
-            equalResult()
+            
         }
         })
     })
@@ -95,12 +86,12 @@ operandEl.forEach(item => {
 
 function equalResult (){
     operate(operator, firstNumber, secondNumber)
-    result = displayEl.textContent
+    /*result = displayEl.textContent*/
     firstNumber = '' 
     secondNumber = ''
     operator = ''
-    console.log(`the result ${result}`)
-    console.log(typeof displayEl.textContent)
+   
+
 }
 equalEl.addEventListener('click',equalResult)
 
@@ -108,9 +99,14 @@ clearEl.addEventListener('click',()=>{
     displayEl.textContent = ''
     firstNumber = ''
     secondNumber = ''
-    result = ''
+   /* result = ''*/
     operator = ''
 })
 
+/*
+window.addEventListener('keydown', function(e){
+    const numSelec = document.querySelector(`div[data-key="${e.keyCode}"]`)
+    if (!numSelect) return ;
+})
 
-
+*/
