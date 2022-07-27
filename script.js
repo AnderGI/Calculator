@@ -60,7 +60,7 @@ function display(){
     numberEl.forEach(item=>{
         item.addEventListener('click', e=>{
         if(operator===''){
-            firstNumber = e.target.innerText
+            firstNumber += e.target.innerText
             console.log(firstNumber)       
             displayEl.textContent += e.target.innerText
         }else{ 
