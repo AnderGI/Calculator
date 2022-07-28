@@ -9,7 +9,7 @@ body{
     background: linear-gradient(#e66465, #9198e5);
     overflow-y: hidden;
     transform: scale(0.67);
-
+    padding-bottom: 10px;
 }
 
 
