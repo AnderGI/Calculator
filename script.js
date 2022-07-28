@@ -27,15 +27,15 @@ function multiply(a,b){
     displayEl.textContent = Number(a)*Number(b) 
 }
 function divide(a,b){
-    if (b!==0){
+    if (b==='0'){
+    displayEl.textContent = `Nope. You can't divide by zero`
+    console.log(`nope`)
+}else{
     noManyDecimanls = Number(a)/Number(b)
     noManyDecimanls = noManyDecimanls.toFixed(2)
     console.log(`the result of the division is ${noManyDecimanls}`)
     console.log(typeof noManyDecimanls)
     displayEl.textContent = noManyDecimanls
-}else{
-    displayEl.textContent = `Nope. You can't divide by zero`
-    console.log(`nope`)
 }
 }
 function exponent(a,b){
@@ -113,9 +113,13 @@ equalEl.addEventListener('click',equalResult)
 clearEl.addEventListener('click',()=>{
     displayEl.textContent = ''
     firstNumber = ''
+    console.log(`the first number is ${firstNumber}`, typeof firstNumber)
     secondNumber = ''
-   /* result = ''*/
+    console.log(`the second number is ${secondNumber}`, typeof secondNumber)
+    result = ''
+    console.log(`the result is ${result}`, typeof result)
     operator = ''
+    console.log(`the operator is ${operator}`, typeof operator)
 })
 
 
@@ -139,13 +143,25 @@ deleteEl.addEventListener('click', ()=>{
 
 })
 
-/*
-window.addEventListener('keydown', function(e){
-    const numSelec = document.querySelector(`div[data-key="${e.keyCode}"]`)
-    if (!numSelect) return ;
+// KEYBOARD
+document.addEventListener('keydown', (event)=>{
+    console.log(event)
+    if(operator===''){
+        firstNumber += event.key
+        console.log(`The first number is ${firstNumber}`) 
+        console.log(typeof firstNumber)      
+        displayEl.textContent += event.key
+    }
+    else{ 
+        secondNumber += event.key
+        console.log(`The second number is ${secondNumber}`)
+        console.log(typeof secondNumber)
+        displayEl.textContent += event.key
+    }
+
 })
 
-*/
+
 
 
 
