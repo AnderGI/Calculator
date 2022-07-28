@@ -34,7 +34,7 @@ body{
     width: 500px;
     border-radius: 0px 0px 50px 50px;
     gap: 10px;
-    padding: 10px;
+    padding: 20px;
     display: grid;
     border-top: none;
     grid-template-columns: 5;
@@ -56,14 +56,22 @@ body{
     font-weight: 500;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
-    transition: all ease-out 4s;
+    transition: all ease-out 1s;
 }
 #buttons >div.operand:hover{
     cursor: pointer;
     background-color: wheat;
     font-weight: 900;
     color: chocolate;
-    transition: all 2s;
+    transition: all .05s;
+}
+
+#copyright{
+    padding-top: 30px;
+    font-weight: 500;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+    color: white;
 }
 
 #num1{ grid-area: num1;}

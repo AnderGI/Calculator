@@ -1,5 +1,6 @@
 //SET MORE THAN TWO NUMBERS STRAIGHT
 // DOT AS A WAY OF CREATING FLOATING NUMBERS
+// EVALUATE FIRST SECOND AND RESULT. IF THEY ARE FLOATING NUMBERS THE ECUATIONSS ANSWER MUST HAVE 3 DECIMALS
 
 let displayEl = document.getElementById('display')
 let numberEl = document.querySelectorAll('.number')
@@ -14,33 +15,45 @@ let operator = ''
 let result = ''
 let noManyDecimanls;
 
+dotEl.addEventListener('click', ()=>{
+    if(operator===''){
+        firstNumber += '.'
+        console.log(`The first number is ${firstNumber}`, typeof firstNumber)   
+        displayEl.textContent += '.'
+    }
+    else{ 
+        secondNumber += '.'
+        console.log(`The second number is ${secondNumber}`, typeof secondNumber)
+        displayEl.textContent += '.'
+    }
+})
+
+
+
 function add(a,b){
-    console.log(Number(a)+Number(b))
-    displayEl.textContent = Number(a)+Number(b) 
+    console.log((Number(a)+Number(b)).toFixed(3))
+    displayEl.textContent = (Number(a)+Number(b)).toFixed(3)
 }
 function subtract(a,b){
-    console.log(Number(a)-Number(b))
-    displayEl.textContent = Number(a)-Number(b) 
+    console.log((Number(a)-Number(b)).toFixed(3))
+    displayEl.textContent =(Number(a)-Number(b)).toFixed(3)
 }
 function multiply(a,b){
-    console.log(Number(a)*Number(b))
-    displayEl.textContent = Number(a)*Number(b) 
+    console.log((Number(a)*Number(b)).toFixed(3))
+    displayEl.textContent = (Number(a)*Number(b)).toFixed(3) 
 }
 function divide(a,b){
     if (b==='0'){
     displayEl.textContent = `Nope. You can't divide by zero`
     console.log(`nope`)
 }else{
-    noManyDecimanls = Number(a)/Number(b)
-    noManyDecimanls = noManyDecimanls.toFixed(2)
-    console.log(`the result of the division is ${noManyDecimanls}`)
-    console.log(typeof noManyDecimanls)
-    displayEl.textContent = noManyDecimanls
+    console.log((Number(a)/Number(b)).toFixed(3))
+    displayEl.textContent = (Number(a)/Number(b)).toFixed(3)
 }
 }
 function exponent(a,b){
-    console.log(Number(a)**Number(b))
-    displayEl.textContent = Number(a)**Number(b)  
+    console.log((Number(a)**Number(b)).toFixed(3))
+    displayEl.textContent = (Number(a)**Number(b)).toFixed(3)
 }
 
 function operate(operator, num1, num2){
@@ -71,14 +84,12 @@ function display(){
         item.addEventListener('click', e=>{
         if(operator===''){
             firstNumber += e.target.innerText
-            console.log(`The first number is ${firstNumber}`) 
-            console.log(typeof firstNumber)      
+            console.log(`The first number is ${firstNumber}`, typeof firstNumber)   
             displayEl.textContent += e.target.innerText
         }
         else{ 
             secondNumber += e.target.innerText
-            console.log(`The second number is ${secondNumber}`)
-            console.log(typeof secondNumber)
+            console.log(`The second number is ${secondNumber}`, typeof secondNumber)
             displayEl.textContent += e.target.innerText
         }
         })
@@ -90,8 +101,7 @@ display()
 
 operandEl.forEach(item => {
     item.addEventListener('click', ()=>{
-        console.log(`The operator is ${item.textContent}`)
-        console.log(typeof item.textContent)
+        console.log(`The operator is ${item.textContent}`,typeof item.textContent)
         operator = item.textContent
         displayEl.textContent = ''
         })
@@ -100,8 +110,7 @@ operandEl.forEach(item => {
 function equalResult (){
     operate(operator, firstNumber, secondNumber)
     result = displayEl.textContent
-    console.log(`The result and the firs number of the next ecuation is ${result}`)
-    console.log(typeof result)
+    console.log(`The result and the firs number of the next ecuation is ${result}`, typeof result)
     firstNumber = result 
     secondNumber = ''
     operator = ''
@@ -130,15 +139,13 @@ function deleteDisplay(){
     if(operator===''){
         firstNumber = firstNumber.slice(0, -1)
         displayEl.textContent= firstNumber
-        console.log(`the first number ${firstNumber}`)
-        console.log(typeof firstNumber)
+        console.log(`the first number ${firstNumber}`, typeof firstNumber)
         console.log(typeof displayEl.textContent)
     } else{
 
         secondNumber = secondNumber.slice(0, -1)
         displayEl.textContent= secondNumber
-        console.log(`the first number ${secondNumber}`)
-        console.log(typeof secondNumber)
+        console.log(`the first number ${secondNumber}`, typeof secondNumber)
         console.log(typeof displayEl.textContent)
     }
 
@@ -146,11 +153,9 @@ function deleteDisplay(){
 
 // KEYBOARD
 document.addEventListener('keydown', (event)=>{
-    console.log(event)
         if(operator==='' && event.key!== '+' && event.key!== '/' && event.key!== '*' && event.key!== '-' && event.key!== 'Backspace'){
             firstNumber += event.key
-            console.log(`The first number is ${firstNumber}`) 
-            console.log(typeof firstNumber)      
+            console.log(`The first number is ${firstNumber}`, typeof firstNumber)      
             displayEl.textContent += event.key
         }
 
@@ -158,22 +163,22 @@ document.addEventListener('keydown', (event)=>{
         case '+':
           operator = event.key
           displayEl.textContent = event.key
-          console.log(`the operator is ${operator}`)
+          console.log(`the operator is ${operator}`, typeof operator)
         break;
         case '-':
           operator = event.key
           displayEl.textContent = event.key
-          console.log(`the operator is ${operator}`)
+          console.log(`the operator is ${operator}`,  typeof operator)
         break;
         case '/':
           operator = event.key
           displayEl.textContent = event.key
-          console.log(`the operator is ${operator}`)
+          console.log(`the operator is ${operator}`,  typeof operator)
         break;
         case '*':
           operator = event.key
           displayEl.textContent = event.key
-          console.log(`the operator is ${operator}`)
+          console.log(`the operator is ${operator}`,  typeof operator)
         break;
         case 'Enter':
             equalResult()
@@ -186,24 +191,25 @@ document.addEventListener('keydown', (event)=>{
             if(operator===''){
                 firstNumber = firstNumber.slice(0, -1)
                 displayEl.textContent= firstNumber
-                console.log(`the first number ${firstNumber}`)
-                console.log(typeof firstNumber)
+                console.log(`the first number ${firstNumber}`, typeof firstNumber)
                 console.log(typeof displayEl.textContent)
             } else{
         
                 secondNumber = secondNumber.slice(0, -1)
                 displayEl.textContent= secondNumber
-                console.log(`the first number ${secondNumber}`)
-                console.log(typeof secondNumber)
+                console.log(`the first number ${secondNumber}`, typeof secondNumber)
                 console.log(typeof displayEl.textContent)
             }
         break;
+     // DOT FOR DECIMALS
+     /*   case '.':
+                   
+          break;*/
         
     }
         if(operator!=='' && event.key!== '+' && event.key!== '/' && event.key!== '*' && event.key!== '-' && event.key!== 'Backspace'){ 
             secondNumber += event.key
-            console.log(`The second number is ${secondNumber}`)
-            console.log(typeof secondNumber)
+            console.log(`The second number is ${secondNumber}`, typeof secondNumber)
             displayEl.textContent += event.key
         }
 
