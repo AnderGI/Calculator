@@ -53,7 +53,7 @@ function operate(operator, num1, num2){
         case '-':
             subtract(num1,num2)
         break;
-        case 'X':
+        case '*':
             multiply(num1,num2)
         break;
         case '/':
@@ -110,7 +110,9 @@ function equalResult (){
 }
 equalEl.addEventListener('click',equalResult)
 
-clearEl.addEventListener('click',()=>{
+clearEl.addEventListener('click',clear)
+
+function clear(){
     displayEl.textContent = ''
     firstNumber = ''
     console.log(`the first number is ${firstNumber}`, typeof firstNumber)
@@ -120,18 +122,17 @@ clearEl.addEventListener('click',()=>{
     console.log(`the result is ${result}`, typeof result)
     operator = ''
     console.log(`the operator is ${operator}`, typeof operator)
-})
+}
 
 
-
-
-deleteEl.addEventListener('click', ()=>{
+deleteEl.addEventListener('click',deleteDisplay )
+function deleteDisplay(){
     if(operator===''){
- firstNumber = firstNumber.slice(0, -1)
- displayEl.textContent= firstNumber
- console.log(`the first number ${firstNumber}`)
- console.log(typeof firstNumber)
- console.log(typeof displayEl.textContent)
+        firstNumber = firstNumber.slice(0, -1)
+        displayEl.textContent= firstNumber
+        console.log(`the first number ${firstNumber}`)
+        console.log(typeof firstNumber)
+        console.log(typeof displayEl.textContent)
     } else{
 
         secondNumber = secondNumber.slice(0, -1)
@@ -141,24 +142,72 @@ deleteEl.addEventListener('click', ()=>{
         console.log(typeof displayEl.textContent)
     }
 
-})
+}
 
 // KEYBOARD
 document.addEventListener('keydown', (event)=>{
     console.log(event)
-    if(operator===''){
-        firstNumber += event.key
-        console.log(`The first number is ${firstNumber}`) 
-        console.log(typeof firstNumber)      
-        displayEl.textContent += event.key
-    }
-    else{ 
-        secondNumber += event.key
-        console.log(`The second number is ${secondNumber}`)
-        console.log(typeof secondNumber)
-        displayEl.textContent += event.key
-    }
+        if(operator==='' && event.key!== '+' && event.key!== '/' && event.key!== '*' && event.key!== '-' && event.key!== 'Backspace'){
+            firstNumber += event.key
+            console.log(`The first number is ${firstNumber}`) 
+            console.log(typeof firstNumber)      
+            displayEl.textContent += event.key
+        }
 
+    switch(event.key) {
+        case '+':
+          operator = event.key
+          displayEl.textContent = event.key
+          console.log(`the operator is ${operator}`)
+        break;
+        case '-':
+          operator = event.key
+          displayEl.textContent = event.key
+          console.log(`the operator is ${operator}`)
+        break;
+        case '/':
+          operator = event.key
+          displayEl.textContent = event.key
+          console.log(`the operator is ${operator}`)
+        break;
+        case '*':
+          operator = event.key
+          displayEl.textContent = event.key
+          console.log(`the operator is ${operator}`)
+        break;
+        case 'Enter':
+            equalResult()
+          break;
+        case 'Delete':
+            clear()
+        break;
+        /* FOR DELETIN ITEMS*/
+        case 'Backspace':
+            if(operator===''){
+                firstNumber = firstNumber.slice(0, -1)
+                displayEl.textContent= firstNumber
+                console.log(`the first number ${firstNumber}`)
+                console.log(typeof firstNumber)
+                console.log(typeof displayEl.textContent)
+            } else{
+        
+                secondNumber = secondNumber.slice(0, -1)
+                displayEl.textContent= secondNumber
+                console.log(`the first number ${secondNumber}`)
+                console.log(typeof secondNumber)
+                console.log(typeof displayEl.textContent)
+            }
+        break;
+        
+    }
+        if(operator!=='' && event.key!== '+' && event.key!== '/' && event.key!== '*' && event.key!== '-' && event.key!== 'Backspace'){ 
+            secondNumber += event.key
+            console.log(`The second number is ${secondNumber}`)
+            console.log(typeof secondNumber)
+            displayEl.textContent += event.key
+        }
+
+    
 })
 
 
