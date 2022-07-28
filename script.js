@@ -27,10 +27,11 @@ function multiply(a,b){
     displayEl.textContent = Number(a)*Number(b) 
 }
 function divide(a,b){
-    if (!b===0){
+    if (b!==0){
     noManyDecimanls = Number(a)/Number(b)
-    noManyDecimanls = noManyDecimanls.toFixed(3)
-    console.log(noManyDecimanls)
+    noManyDecimanls = noManyDecimanls.toFixed(2)
+    console.log(`the result of the division is ${noManyDecimanls}`)
+    console.log(typeof noManyDecimanls)
     displayEl.textContent = noManyDecimanls
 }else{
     displayEl.textContent = `Nope. You can't divide by zero`
@@ -70,14 +71,15 @@ function display(){
         item.addEventListener('click', e=>{
         if(operator===''){
             firstNumber += e.target.innerText
-            console.log(firstNumber)       
+            console.log(`The first number is ${firstNumber}`) 
+            console.log(typeof firstNumber)      
             displayEl.textContent += e.target.innerText
-        }else{ 
+        }
+        else{ 
             secondNumber += e.target.innerText
-            console.log(secondNumber)
-            displayEl.textContent = e.target.innerText
-            equalResult()
-            
+            console.log(`The second number is ${secondNumber}`)
+            console.log(typeof secondNumber)
+            displayEl.textContent += e.target.innerText
         }
         })
     })
@@ -88,16 +90,18 @@ display()
 
 operandEl.forEach(item => {
     item.addEventListener('click', ()=>{
-        console.log(item.textContent)
+        console.log(`The operator is ${item.textContent}`)
+        console.log(typeof item.textContent)
         operator = item.textContent
-        displayEl.textContent = operator
-    })
+        displayEl.textContent = ''
+        })
 })
 
 function equalResult (){
     operate(operator, firstNumber, secondNumber)
     result = displayEl.textContent
-    console.log(result)
+    console.log(`The result and the firs number of the next ecuation is ${result}`)
+    console.log(typeof result)
     firstNumber = result 
     secondNumber = ''
     operator = ''
@@ -114,6 +118,27 @@ clearEl.addEventListener('click',()=>{
     operator = ''
 })
 
+
+
+
+deleteEl.addEventListener('click', ()=>{
+    if(operator===''){
+ firstNumber = firstNumber.slice(0, -1)
+ displayEl.textContent= firstNumber
+ console.log(`the first number ${firstNumber}`)
+ console.log(typeof firstNumber)
+ console.log(typeof displayEl.textContent)
+    } else{
+
+        secondNumber = secondNumber.slice(0, -1)
+        displayEl.textContent= secondNumber
+        console.log(`the first number ${secondNumber}`)
+        console.log(typeof secondNumber)
+        console.log(typeof displayEl.textContent)
+    }
+
+})
+
 /*
 window.addEventListener('keydown', function(e){
     const numSelec = document.querySelector(`div[data-key="${e.keyCode}"]`)
@@ -121,3 +146,6 @@ window.addEventListener('keydown', function(e){
 })
 
 */
+
+
+

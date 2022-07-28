@@ -56,7 +56,17 @@ body{
     font-weight: 500;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
+    transition: all 2s;
 }
+#buttons >div.operand:hover{
+    cursor: pointer;
+    background-color: yellow;
+    transition: all 2s;
+}
+
+
+
+
 #num1{ grid-area: num1;}
 #num2{ grid-area: num2;}
 #num3 {grid-area: num3;}
