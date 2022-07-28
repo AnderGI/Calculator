@@ -9,11 +9,6 @@ body{
     background: linear-gradient(#e66465, #9198e5);
     overflow-y: hidden;
 }
-body{
-    -webkit-transform: scale(0.67);
-       -moz-transform: scale(0.67);
-            transform: scale(0.67);
-}
 
 
 #display, #buttons{
