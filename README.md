@@ -1,5 +1,5 @@
 # Calculator
-<<<<<<< HEAD
+
 All the instructions for how to use this calculator are available. Come and see it. Have some fun with it! And practise some maths!
 =======
 
@@ -14,4 +14,4 @@ All the instructions for how to use this calculator are available. Come and see 
 - To get the answer click the Enter button
 - The difference between multiplication and exponents relies on which button you press. x button letter for multiplication. * for exponents.
 # BUG => MANY KEY FROM THE KEYBOARDS ARE NOT USEFUL AND SHOULD BE ELIMINATED
->>>>>>> origin
+
