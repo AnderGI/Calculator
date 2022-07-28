@@ -4,7 +4,7 @@
 - This calculator only handles two numbers and an operator at a time. Everytime the equal button is clicked the new number will be stored inside the result variable, which will be the first number of the next equation.
 - Equations: Addition, subtraction, multiplication, division and exponents.
 
-#Keyboard. How to use it?
+# Keyboard. How to use it?
 - In orther for number to be visible in the display container, you will need to have the "Num Lock" option activated.
 - To delete everything (AC button) click on the Supr button
 - To delete the last element of an string click on the Backspace button
