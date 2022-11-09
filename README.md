@@ -12,6 +12,6 @@ All the instructions for how to use this calculator are available. Come and see 
 - To delete everything (AC button) click on the Supr button
 - To delete the last element of an string click on the Backspace button
 - To get the answer click the Enter button
-- The difference between multiplication and exponents relies on which button you press. x button letter for multiplication. * for exponents.
+- The difference between multiplication and exponents relies on which button you press. x (lowercase) button letter for multiplication. * for exponents.
 # BUG => MANY KEY FROM THE KEYBOARDS ARE NOT USEFUL AND SHOULD BE ELIMINATED
 
